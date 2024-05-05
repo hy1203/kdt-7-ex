@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //명명규칙
+        //1. 숫자로 시작할 수 없다.
+        //2. 특수문자 $, _만 가능
+        //3. 예약어 사용금지
+        //4. 낙타표기법으로 의미있게 지읍니다.
+      /* var n = 3;
+        n>0 ? alert('큼') : alert('작음');
+
+        //단축실행
+        const a = 10;
+        const b = 20;
+        a > b && console.log("참입니다.");
+
+        function test(a) {
+            const obj ={
+                name : a || '기본이름'
+            }
+            console.log(obj.num);
+        }
+        test(이름)*/
+        console.log((8/'2') !== 4);
+        console.log((0 === false));
+        console.log(('1'+2)===12);
+        console.log(3 !== '3');
+
+        const age = 19;
+        if(age >=20){
+            console.log("성인");
+        }else if(age>=17){
+            console.log("고등학생");
+        }else if(age>=14){
+            console.log("중학생");
+        }else if(age>=8){
+            console.log("초등학생");
+        }else{
+            console.log("유아");
+        }
+        prompt('입력하세요')//사용자로부터 데이터를 입력받는 함수
+
+        const num = prompt();
+        if(Number(num) % 2 != 0) {
+            console.log(num);
+            console.log("홀수입니다!");
+        }else{
+            console.log(num);
+            console.log("짝수입니다!");
+        }
+    </script>
+</body>
+</html>

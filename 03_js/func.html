@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function hello() {
+            console.log("안녕하세요");
+        }
+        hello();//hello를 function 위에 올려도 작동을 하지만 밑에 두개는 아니다.
+
+        const good = function() {
+            console.log("자바스크리트 굿!!");
+        }
+        good();
+
+        const arrow=() => {
+            console.log("화살표 함수");
+        }
+        arrow();
+
+        function returnFunc(a,b) {
+            return a+b;
+        }
+        const value = returnFunc(1,2);
+        //const value = a+b의 결과값
+        console.log(value);
+        console.log("value :"+typeof(123));
+        console.log(`value : ${typeof(true)}`); 
+    </script>
+</body>
+</html>

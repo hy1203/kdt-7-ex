@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .chat-box {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h4>socket</h4>
+    <div class="nick-box">
+      <input type="text" id="nickname" />
+      <button type="button" onclick="entry()">입장</button>
+    </div>
+    <div class="chat-box">
+      <div id="chat-list" class="chat-list"></div>
+      <select id="nick-list"></select>
+      <input type="text" id="message" />
+      <button type="button" onclick="sendMessage()">전송</button>
+    </div>
+    <!-- <button onclick="hello()">Hello</button>
+    <button onclick="study()">Study</button>
+    <button onclick="bye()">Bye</button> -->
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io();
+      socket.on("connection", () => {
+        console.log(`client Connect >>`, socket.id);
+      });
+
+      socket.on("notice", (msg) => {
+        const list = document.querySelector("#chat-list");
+        list.insertAdjacentHTML("beforeend", `<div>${msg}</div>`);
+      });
+      //참가자 아이디
+      function entry() {
+        const id = document.querySelector("#nickname").value;
+        socket.emit("setNick", id);
+      }
+
+      function sendMessage() {
+        const msg = document.querySelector("#message").value;
+        const nick = myNick;
+        const dm = document.querySelector("#nick-list").value;
+        socket.emit("send", { nick, msg, dm });
+      }
+
+      socket.on("entryFinish", (data) => {
+        const nickBox = document.querySelector(".nick-box");
+        const chatBox = document.querySelector(".chat-box");
+        nickBox.style.display = "none";
+        chatBox.style.display = "block";
+      });
+
+      socket.on("newMessage", (data) => {
+        const chat = document.querySelector("#chat-list");
+        chat.textContent = `${data.nick} : ${data.msg}`;
+      });
+
+      socket.on("updateNick", (data) => {
+        let option = "<option value='all'>전체</option>";
+        for (const key in data) {
+          console.log(key, data[key]);
+          option += `<option value=${key}>${data[key]}</option>`;
+        }
+        document.querySelector("#nick-list").innerHTML = option;
+      });
+
+      socket.on("error", (data) => {
+        alert(data);
+      });
+      //   function hello() {
+      //     socket.emit("hello", { who: "client", msg: "hello" });
+      //     socket.on("sHello", (data) => {
+      //       console.log(`${data.who} : ${data.msg}`);
+      //     });
+      //   }
+      //   function study() {
+      //     socket.emit("study", { who: "client", msg: "study" });
+      //     socket.on("sStudy", (data) => {
+      //       console.log(`${data.who} : ${data.msg}`);
+      //     });
+      //   }
+      //   function bye() {
+      //     socket.emit("bye", { who: "client", msg: "bye" });
+      //     socket.on("sBye", (data) => {
+      //       console.log(`${data.who} : ${data.msg}`);
+      //     });
+      //   }
+    </script>
+  </body>
+</html>

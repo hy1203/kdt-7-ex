@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script
+  src="https://code.jquery.com/jquery-3.6.4.min.js"
+  integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+  crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <img src="image/image/q.jpg" alt="물음표" width="400px" height="400px">
+    <br />
+    <button class="apple">사과</button>
+    <button class="banana">바나나</button>
+    <button class="grape">포도</button>
+    <button class="peach">복숭아</button>
+    <script>
+        $('button').css({'left':'90px','position':'relative'})
+        $('.apple').click(function() {
+            $('img').attr('src','image/image/apple.jpg')
+            $('img').attr('width','400px')
+        })
+        $('.banana').click(function() {
+            $('img').attr('src','image/image/bananas.jpg')
+            $('img').attr('width','400px')
+        })
+        $('.grape').click(function() {
+            $('img').attr('src','image/image/grapes.jpg')
+            $('img').attr('width','400px')
+        })
+        $('.peach').click(function() {
+            $('img').attr('src','image/image/peaches.jpg')
+            $('img').attr('width','400px')
+        })
+        //리팩토링
+        /*
+            let fruits;
+            if( $(this).hasClass('apple')) {
+                fruits = 'apple'
+            } else if( $(this).hasClass('banana')) {
+                fruits = 'bananas'
+            } else if( $(this).hasClass('grape')) {
+                fruits = 'grapes'
+            } else if( $(this).hasClass('peache')) {
+                fruits = 'peaches'
+            }
+            $('img').attr('src', `./image/${fruits}.jpg`)
+        })
+        */
+    </script>
+</body>
+</html>

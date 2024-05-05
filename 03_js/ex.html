@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function rectangle(w, h){
+            return w * h;
+        }
+        function triangle(w, h){
+            return w * h / 2;
+        }
+        function circle(r) {
+            return r * r * 3.14;
+        }
+        const w = prompt();
+        const h = prompt();
+        const r = prompt();
+        console.log("rectangle:",rectangle(Number(w),Number(h)));
+        console.log("triangle:",triangle(Number(w),Number(h)));
+        console.log("circle:",circle(Number(r)));
+    </script>
+</body>
+</html>

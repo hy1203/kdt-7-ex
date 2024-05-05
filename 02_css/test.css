@@ -1,0 +1,19 @@
+.inline {
+    display: inline-block;
+    height: 100px;
+}
+.block {
+    display: block;
+}
+.box {
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    margin: 5px;
+}
+.flex_box {
+    display: flex;
+    justify-content: space-around;
+    height: 200px;
+    align-items: end;
+}

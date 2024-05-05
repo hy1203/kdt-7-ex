@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <form action="/" id = "todo-form">
+        <input type="text" name="todo">
+        <button>Add</button>
+    </form>
+    <ul class="todos"></ul> 
+    <input type="text" id="change-input">
+    <div class="intro"></div>
+    <script>
+        //form 이벤트
+         const todoForm = document.querySelector('#todo-form');
+         const todos = document.querySelector('.todos')
+         console.log(todoForm)
+         todoForm.addEventListener('submit', function(e) {
+             e.preventDefault();
+             console.log(e)
+
+             const todoInput = document.querySelector("input[name=todo]")
+             console.log(todoInput.value)
+             const todo = todoInput.value
+
+             const newTodo = document.createElement('li')
+             newTodo.append(todo)
+             todos.append(newTodo)
+
+             todoInput.value= ''
+         })
+        const cinput = document.querySelector("#change-input")
+        cinput.addEventListener('change',function() {
+            console.log('변경되었습니다.')
+        })
+        cinput.addEventListener('input',function() {
+            let div = document.querySelector(".intro")
+            div.textContent = this.value
+        })
+    </script>
+</body>
+</html>

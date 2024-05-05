@@ -1,0 +1,12 @@
+#hello {
+    color: #d46161;
+}
+#back {
+    background-image: url("l.jpg");
+    background-size: 500px;
+    background-repeat: no-repeat;
+    height: 600px;
+}
+.backIn {
+    color:white
+}

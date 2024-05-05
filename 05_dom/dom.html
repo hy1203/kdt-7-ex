@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="parent">
+        <div class="hello"></div>
+        <div class="hello"></div>
+        <div class="hello"></div>
+        <div class="hello"></div>
+    </div>
+    <script>
+        const hello1 = document.getElementsByClassName('hello');
+        const hello2 = document.querySelectorAll('.hello');
+        const parent = document.getElementById('parent');
+        console.log(hello1.length);
+        console.log(hello2.length);
+        
+        const divs = document.createElement('div');//div 태그를 만들어줌
+        divs.setAttribute('class', 'hello');//div태그안에 class hello를 만들어줌
+        parent.appendChSilde(divs);
+        /*console.log(hello1.length);
+        console.log(hello2.length);
+
+        for(let i = 0; i < hello1.length; i++){
+            hello1[i].className = 'hell';
+        }*/
+    </script>
+</body>
+</html>

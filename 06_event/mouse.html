@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div onclick="alert('div태그 클릭')">클릭</div>
+    <button id="button">버튼</button>
+    <div id="mouseover">마우스를 올리세요</div>
+    <button id="button2">이벤트리스너</button>
+    <button id="button3">마우스엔터</button>
+    <button class="btn">btn1</button>
+    <button class="btn">btn2</button>
+    <button class="btn">btn3</button>
+    <button class="btn">btn4</button>
+    <button class="btn">btn5</button>
+    <script>
+        //2번째 방법 onXXXXXX속성하는 방법
+        const btn = document.getElementById('button');
+        btn.onclick = function() {
+            alert('버튼태그를 출력')
+        };
+        function onMouseOver(){
+            console.log("마우스 오버");
+            over.style.color = 'red';
+        }
+        const over = document.getElementById('mouseover');
+        over.onmouseover = onMouseOver;//함수 실행이기 때문에 ()를 쓰면 안됨
+        function onMouseOut() {
+            over.style.color ='blue';
+        }
+        over.onmouseout = onMouseOut;
+        //3번째 방법 addEventListener 방식
+        const btn2 = document.querySelector('#button2');
+        btn2.addEventListener('click', function() {
+            alert("이벤트 리스너 방식입니다.")
+        }); //function() 대신 () => 화살표 함수로도 가능하다.
+        function onMouseEnter() {
+            const divs = document.createElement('div');
+            btn2.append(divs);
+        }
+        const btn3 = document.querySelector('#button3');
+        btn3.addEventListener('mouseenter', onMouseEnter);
+        
+        //요소 하나만 접근할 때
+        const btns = document.querySelectorAll('.btn');
+
+        function bgColor() {
+            this.style.backgroundColor = "blue";
+        }
+        //this란 함수가 속해 있던 객체 참조
+
+        for(let btn of btns) {
+            console.log(btn)
+            btn.addEventListener('click',bgColor)
+        }
+    </script>
+</body>
+</html>
